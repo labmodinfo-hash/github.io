@@ -2,4 +2,4 @@ title: ISOF — Институт семиотики образов и фольк
 url: "https://isof.ru"
 markdown: kramdown
 permalink: /articles/:slug/
-
+future: true
