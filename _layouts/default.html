@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} — ISOF</title>
+    {%- comment -%} Превью для соцсетей (Open Graph) {%- endcomment -%}
+    {%- assign og_title = page.title -%}
+    {%- if page.url == '/' or page.title == 'Главная' -%}{%- assign og_title = site.title -%}{%- endif -%}
+    {%- assign og_desc = page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 200 -%}
+    {%- assign og_img = page.image | default: '/assets/images/og-cover.jpg' -%}
+    {%- unless og_img contains '://' -%}{%- assign og_img = og_img | prepend: site.url -%}{%- endunless -%}
+    <meta name="description" content="{{ og_desc | escape }}">
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:site_name" content="ISOF">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="{{ og_title | escape }}">
+    <meta property="og:description" content="{{ og_desc | escape }}">
+    <meta property="og:url" content="{{ page.url | prepend: site.url }}">
+    <meta property="og:image" content="{{ og_img }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ og_title | escape }}">
+    <meta name="twitter:description" content="{{ og_desc | escape }}">
+    <meta name="twitter:image" content="{{ og_img }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&subset=cyrillic&display=swap" rel="stylesheet">
@@ -76,18 +94,21 @@
         body { background: linear-gradient(180deg, #DCE6E8 0%, var(--bg-primary) 420px); }
         .logo-badge { border-color: var(--bg-accent); color: var(--bg-accent); }
         nav a:hover { color: var(--accent-red); }
-        .post-wrapper, .article-card, .dept-card, .term-card, .manifesto-box { border-radius: 16px; background: rgba(247,250,250,0.75); backdrop-filter: blur(6px); }
+        body .post-wrapper, body .article-card, body .dept-card, body .term-card, body .manifesto-box { border-radius: 16px; background: rgba(247,250,250,0.75); backdrop-filter: blur(6px); }
         .article-card, .dept-card { transition: transform .25s, box-shadow .25s, border-color .2s; }
         .article-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -20px rgba(31,58,51,.5); }
         .article-card img, .post-cover, .post-content img { border-radius: 0; filter: saturate(.92); }
         .post-cover, .post-content img { border-radius: 12px; }
         .post-content blockquote { border-left-color: var(--moss); background: rgba(138,154,59,.1); border-radius: 0 10px 10px 0; }
         .post-lead { border-left-color: var(--moss); }
-        .glossary-banner { border-radius: 16px; background: linear-gradient(135deg, #1F3A33, #2c4d45); }
-        .glossary-kanji { color: var(--moss-light); }
-        .glossary-link { border-bottom-color: var(--moss); }
-        .btn-dark { border-radius: 999px; background: var(--bg-accent); }
-        .btn-dark:hover { background: var(--accent-red); }
+        body .glossary-banner { border-radius: 16px; background: linear-gradient(135deg, #1F3A33, #2c4d45); }
+        body .glossary-kanji { color: var(--moss-light); }
+        body .glossary-link { border-bottom-color: var(--moss); }
+        body .btn-dark { border-radius: 999px; background: var(--bg-accent); }
+        body .btn-dark:hover { background: var(--accent-red); }
+        body .tab-btn { border-radius: 999px; }
+        /* длинные анонсы обрезаем до 4 строк, чтобы карточки были ровными */
+        .article-excerpt { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
         footer { background: var(--bg-accent); color: #B9C8C4; border-top: none; margin-top: 80px; }
         footer a:hover { color: var(--moss-light); }
 
