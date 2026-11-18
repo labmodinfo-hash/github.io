@@ -95,12 +95,15 @@
         .hero { position: relative; margin-top: 28px; min-height: 460px; display: flex; flex-direction: column; justify-content: flex-end;
             padding: 96px 48px 52px; border-bottom: none; border-radius: 22px; overflow: hidden; color: #fff;
             background:
-                linear-gradient(to top, rgba(18,34,29,.78), rgba(18,34,29,.12) 65%),
+                linear-gradient(to top, rgba(14,28,24,.92) 0%, rgba(14,28,24,.74) 55%, rgba(14,28,24,.5) 100%),
                 url("/assets/images/forest.jpg") center / cover no-repeat,
                 linear-gradient(160deg, #1F3A33, #5F7F7C); }
         .hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.35); }
         .hero p { color: rgba(255,255,255,.92) !important; }
-        .hero .post-meta { color: var(--moss-light); }
+        .hero .post-meta { align-self: flex-start; color: #fff; background: rgba(14,28,24,.6); border: 1px solid rgba(201,214,122,.55); padding: 5px 12px; border-radius: 999px; backdrop-filter: blur(4px); margin-bottom: 8px; }
+        .hero h1 { text-shadow: 0 2px 6px rgba(0,0,0,.55), 0 4px 28px rgba(0,0,0,.5); }
+        .hero p { text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+        .header-inner { padding-left: 20px; padding-right: 20px; }
         @media (max-width: 800px) { .hero { min-height: 380px; padding: 72px 24px 32px; border-radius: 16px; } }
     </style>
 </head>
