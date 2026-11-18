@@ -3,7 +3,3 @@ url: "https://isof.ru"
 markdown: kramdown
 permalink: /articles/:slug/
 future: true
-
-collections:
-  glossary:
-    output: false
