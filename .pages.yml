@@ -43,4 +43,30 @@ content:
       - name: body
         label: Текст исследования
         type: rich-text
-        
+
+  - name: glossary
+    label: Глоссарий терминов
+    type: collection
+    path: _glossary
+    filename: "{primary}.md"
+    fields:
+      - name: title
+        label: Термин (на русском)
+        type: string
+        required: true
+      - name: japanese
+        label: Оригинал и перевод (например, 物の哀れ — печальное очарование вещей)
+        type: string
+      - name: category
+        label: Категория термина
+        type: select
+        options:
+          values:
+            - Эстетика и философия
+            - Визуальные коды (Манпу)
+            - Фольклор и мифология
+            - Архетипы и тропы
+      - name: description
+        label: Научное определение и примеры в аниме
+        type: text
+        required: true
