@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} — ISOF</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&subset=cyrillic&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #F9F8F6;
-            --bg-secondary: #FFFFFF;
-            --bg-accent: #18181B;
-            --text-main: #18181B;
-            --text-muted: #52525B;
-            --accent-red: #B91C1C;
-            --border-color: #E4E4E7;
+            --bg-primary: #E8EEEF;      /* туман */
+            --bg-secondary: #F7FAFA;
+            --bg-accent: #1F3A33;       /* тёмный лес */
+            --text-main: #1E2926;
+            --text-muted: #566664;
+            --accent-red: #5E6C1F;      /* мох (имя переменной сохранено) */
+            --moss: #8A9A3B;
+            --moss-light: #C9D67A;
+            --border-color: #CAD6D6;
             --font-serif: 'Cormorant Garamond', Georgia, serif;
             --font-sans: 'Inter', -apple-system, sans-serif;
         }
@@ -25,7 +27,7 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
         /* Шапка */
-        header { position: sticky; top: 0; background: rgba(249,248,246,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); z-index: 100; }
+        header { position: sticky; top: 0; background: rgba(232,238,239,0.88); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); z-index: 100; }
         .header-inner { display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 12px 0; gap: 16px; }
         .logo { display: flex; align-items: center; gap: 12px; }
         .logo-badge { font-family: var(--font-serif); font-weight: 700; font-size: 26px; border: 2px solid var(--text-main); padding: 2px 9px; line-height: 1; }
@@ -69,6 +71,37 @@
             .post-wrapper { padding: 24px; margin: 24px auto; }
             .post-title, .hero h1 { font-size: 32px; }
         }
+    
+        /* ===== Тема «туманный лес» ===== */
+        body { background: linear-gradient(180deg, #DCE6E8 0%, var(--bg-primary) 420px); }
+        .logo-badge { border-color: var(--bg-accent); color: var(--bg-accent); }
+        nav a:hover { color: var(--accent-red); }
+        .post-wrapper, .article-card, .dept-card, .term-card, .manifesto-box { border-radius: 16px; background: rgba(247,250,250,0.75); backdrop-filter: blur(6px); }
+        .article-card, .dept-card { transition: transform .25s, box-shadow .25s, border-color .2s; }
+        .article-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -20px rgba(31,58,51,.5); }
+        .article-card img, .post-cover, .post-content img { border-radius: 0; filter: saturate(.92); }
+        .post-cover, .post-content img { border-radius: 12px; }
+        .post-content blockquote { border-left-color: var(--moss); background: rgba(138,154,59,.1); border-radius: 0 10px 10px 0; }
+        .post-lead { border-left-color: var(--moss); }
+        .glossary-banner { border-radius: 16px; background: linear-gradient(135deg, #1F3A33, #2c4d45); }
+        .glossary-kanji { color: var(--moss-light); }
+        .glossary-link { border-bottom-color: var(--moss); }
+        .btn-dark { border-radius: 999px; background: var(--bg-accent); }
+        .btn-dark:hover { background: var(--accent-red); }
+        footer { background: var(--bg-accent); color: #B9C8C4; border-top: none; margin-top: 80px; }
+        footer a:hover { color: var(--moss-light); }
+
+        /* Hero с фото леса: положите файл в assets/images/forest.jpg */
+        .hero { position: relative; margin-top: 28px; min-height: 460px; display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 96px 48px 52px; border-bottom: none; border-radius: 22px; overflow: hidden; color: #fff;
+            background:
+                linear-gradient(to top, rgba(18,34,29,.78), rgba(18,34,29,.12) 65%),
+                url("/assets/images/forest.jpg") center / cover no-repeat,
+                linear-gradient(160deg, #1F3A33, #5F7F7C); }
+        .hero h1 { color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,.35); }
+        .hero p { color: rgba(255,255,255,.92) !important; }
+        .hero .post-meta { color: var(--moss-light); }
+        @media (max-width: 800px) { .hero { min-height: 380px; padding: 72px 24px 32px; border-radius: 16px; } }
     </style>
 </head>
 <body>
